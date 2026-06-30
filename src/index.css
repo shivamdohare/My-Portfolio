@@ -9,5 +9,59 @@
 @layer base {
   html {
     font-family: 'Raleway', sans-serif;
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0a0a0f;
+    color: #e5e7eb;
+  }
+}
+
+@layer components {
+  /* Gradient text used for accents and section emphasis */
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-400 bg-clip-text text-transparent;
+  }
+
+  /* Frosted card surface */
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  /* Pill-style tech tag */
+  .tag {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-gray-300;
+  }
+
+  /* Section heading underline treatment */
+  .section-title {
+    @apply inline-block text-3xl font-bold sm:text-4xl;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#22d3ee, #6366f1);
+  border-radius: 9999px;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

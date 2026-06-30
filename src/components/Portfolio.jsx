@@ -1,72 +1,170 @@
 import React from "react";
-import arrayDestruct from "../assets/portfolio/arrayDestruct.jpg";
-import navbar from "../assets/portfolio/navbar.jpg";
-import reactParallax from "../assets/portfolio/reactParallax.jpg";
-import reactSmooth from "../assets/portfolio/reactSmooth.jpg";
-import textutilities from "../assets/portfolio/textUtilities.png";
-import newszone from "../assets/portfolio/newsZone.png";
+import { FiExternalLink, FiGithub } from "react-icons/fi";
 
+import newszone from "../assets/portfolio/newsZone.png";
+import textutilities from "../assets/portfolio/textUtilities.png";
+
+// NOTE: update the `demo` / `code` URLs below with your real links.
+const featured = [
+  {
+    id: "escapelab",
+    name: "EscapeLab",
+    tagline: "E-Commerce UI with URL-Synchronized State",
+    initials: "EL",
+    accent: "from-cyan-500/30 to-indigo-500/20",
+    description:
+      "Filters, sort, and pagination serialize to query params for shareable, deterministic views. Catalog rendering uses memoized cards, IntersectionObserver lazy-loading, and a localStorage-persisted cart reducer with optimistic updates. 95+ Lighthouse across all categories.",
+    tags: ["Next.js", "Tailwind", "URL State", "next/image", "SEO / JSON-LD"],
+    demo: "https://escapelab.netlify.app/",
+    code: "https://github.com/shivamdohare",
+  },
+  {
+    id: "portfolio",
+    name: "Personal Portfolio",
+    tagline: "This site — React + Tailwind",
+    initials: "SD",
+    accent: "from-fuchsia-500/30 to-purple-500/20",
+    description:
+      "A fully responsive single-page portfolio with smooth section scrolling, scroll-spy navigation, IntersectionObserver-driven highlights, and a motion-aware animated hero. Built for fast loads and clean accessibility.",
+    tags: ["React", "Tailwind", "react-scroll", "Responsive", "a11y"],
+    demo: "https://shivamdohare.netlify.app/",
+    code: "https://github.com/shivamdohare",
+  },
+];
+
+const more = [
+  {
+    id: 1,
+    src: newszone,
+    name: "News Zone",
+    description: "Live news app integrating a third-party news API with category filtering.",
+    tags: ["React", "News API"],
+    demo: "#",
+    code: "https://github.com/shivamdohare",
+  },
+  {
+    id: 2,
+    src: textutilities,
+    name: "Text Utilities",
+    description: "Text manipulation toolkit — case conversion, word count, and live preview.",
+    tags: ["React", "Bootstrap"],
+    demo: "#",
+    code: "https://github.com/shivamdohare",
+  },
+];
+
+const LinkButtons = ({ demo, code, small }) => (
+  <div className={`flex gap-3 ${small ? "mt-3" : "mt-5"}`}>
+    {demo && demo !== "#" && (
+      <a
+        href={demo}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-1.5 rounded-md bg-gradient-to-r from-cyan-500 to-indigo-500 px-4 py-2 text-sm font-medium text-white transition-transform duration-200 hover:scale-105"
+      >
+        <FiExternalLink /> Live
+      </a>
+    )}
+    {demo === "#" && (
+      <span className="flex items-center gap-1.5 rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-gray-500">
+        <FiExternalLink /> Demo soon
+      </span>
+    )}
+    {code && (
+      <a
+        href={code}
+        target="_blank"
+        rel="noreferrer"
+        className="flex items-center gap-1.5 rounded-md border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium text-gray-200 transition-colors duration-200 hover:border-cyan-400/40 hover:text-white"
+      >
+        <FiGithub /> Code
+      </a>
+    )}
+  </div>
+);
 
 const Portfolio = () => {
-  const portfolios = [
-    {
-      id: 1,
-      src: arrayDestruct,
-      caption: "Array Destructuring",
-    },
-    {
-      id: 2,
-      src: reactParallax,
-      caption: "React Parallax",
-    },
-    {
-      id: 3,
-      src: navbar,
-      caption: "Navigation Bar",
-    },
-    {
-      id: 4,
-      src: reactSmooth,
-      caption: "Smooth Scrolling",
-    },
-    {
-      id: 5,
-      src: textutilities,
-      caption: "Text Utilities",
-    },
-    {
-      id: 6,
-      src: newszone,
-      caption:"News Zone" ,
-    },
-  ];
-
   return (
     <div
-      name="portfolio"
-      className="bg-gradient-to-b from-black to-gray-800 w-full text-white md:h-screen"
+      name="projects"
+      id="projects"
+      className="w-full bg-gradient-to-b from-ink to-gray-900 py-24 text-white"
     >
-      <div className="max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full">
-        <div className="pb-8">
-          <p className="text-4xl font-bold inline border-b-4 border-gray-500">
-            Portfolio
+      <div className="mx-auto max-w-screen-lg px-4">
+        <div className="pb-10">
+          <h2 className="section-title">
+            Featured <span className="text-gradient">Projects</span>
+          </h2>
+          <div className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
+          <p className="mt-4 max-w-2xl text-gray-400">
+            A few things I've designed and shipped. More on my GitHub.
           </p>
-          <p className="py-6">Check out some of my work right here</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {portfolios.map(({ id, src,caption }) => (
-            <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
-              <img
-                src={src}
-                alt=""
-                className="rounded-md duration-200 hover:scale-105"
-              />
-              <div className="flex items-center justify-center">
-                <button className="w-1/2 px-6 py-3 m-4 content-center duration-200 hover:scale-105">
-                  {caption}
-                </button>
-                
+        {/* Featured */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {featured.map((p) => (
+            <div
+              key={p.id}
+              className="glass group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+            >
+              <div
+                className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${p.accent}`}
+              >
+                <div className="absolute inset-0 bg-grid-faint bg-[size:28px_28px] opacity-40" />
+                <span className="relative text-5xl font-bold tracking-tight text-white/90">
+                  {p.initials}
+                </span>
+              </div>
+              <div className="flex flex-1 flex-col p-6">
+                <h3 className="text-xl font-semibold text-white">{p.name}</h3>
+                <p className="text-sm font-medium text-cyan-300">{p.tagline}</p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-400">
+                  {p.description}
+                </p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span key={t} className="tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <LinkButtons demo={p.demo} code={p.code} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* More projects */}
+        <h3 className="mb-6 mt-14 text-lg font-semibold text-gray-300">
+          More builds
+        </h3>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {more.map((p) => (
+            <div
+              key={p.id}
+              className="glass group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+            >
+              <div className="h-44 overflow-hidden">
+                <img
+                  src={p.src}
+                  alt={p.name}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div className="flex flex-1 flex-col p-5">
+                <h4 className="text-lg font-semibold text-white">{p.name}</h4>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-400">
+                  {p.description}
+                </p>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <span key={t} className="tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+                <LinkButtons demo={p.demo} code={p.code} small />
               </div>
             </div>
           ))}
