@@ -35,10 +35,12 @@ const Home = () => {
 
           <p className="mt-5 max-w-xl animate-fade-up text-base leading-relaxed text-gray-400 sm:text-lg">
             I'm <span className="font-semibold text-white">Shivam Dohare</span>, a
-            Frontend Engineer with 3+ years building performance-critical UIs and
-            real-time data visualization — from a Cesium.js satellite dashboard
-            rendering 100+ live entities to Next.js healthcare workflows and
-            agentic AI systems.
+            Frontend Engineer who turns demanding, real-time data into interfaces
+            that stay fast. Over 3+ years I've streamed{" "}
+            <span className="font-semibold text-white">100+ live satellites</span> to
+            a Cesium.js dashboard at sub-second latency, pushed healthcare apps from{" "}
+            <span className="font-semibold text-white">~60 to 90+ Lighthouse</span>,
+            and now build agentic AI systems that act, not just answer.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
