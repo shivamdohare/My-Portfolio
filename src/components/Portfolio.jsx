@@ -1,5 +1,7 @@
 import React from "react";
 import { FiExternalLink, FiGithub } from "react-icons/fi";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 import newszone from "../assets/portfolio/newsZone.png";
 import textutilities from "../assets/portfolio/textUtilities.png";
@@ -91,22 +93,20 @@ const Portfolio = () => {
       className="w-full bg-gradient-to-b from-ink to-gray-900 py-24 text-white"
     >
       <div className="mx-auto max-w-screen-lg px-4">
-        <div className="pb-10">
-          <h2 className="section-title">
-            Featured <span className="text-gradient">Projects</span>
-          </h2>
-          <div className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
-          <p className="mt-4 max-w-2xl text-gray-400">
-            A few things I've designed and shipped. More on my GitHub.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Selected work"
+          subtitle="A few things I've designed and shipped. More on my GitHub."
+        >
+          Featured <span className="text-gradient">Projects</span>
+        </SectionHeading>
 
         {/* Featured */}
         <div className="grid gap-6 md:grid-cols-2">
-          {featured.map((p) => (
-            <div
+          {featured.map((p, i) => (
+            <Reveal
               key={p.id}
-              className="glass group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+              delay={i * 90}
+              className="glass glass-border group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
             >
               <div
                 className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${p.accent}`}
@@ -131,19 +131,20 @@ const Portfolio = () => {
                 </div>
                 <LinkButtons demo={p.demo} code={p.code} />
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
         {/* More projects */}
-        <h3 className="mb-6 mt-14 text-lg font-semibold text-gray-300">
+        <Reveal as="h3" className="mb-6 mt-14 text-lg font-semibold text-gray-300">
           More builds
-        </h3>
+        </Reveal>
         <div className="grid gap-6 sm:grid-cols-2">
-          {more.map((p) => (
-            <div
+          {more.map((p, i) => (
+            <Reveal
               key={p.id}
-              className="glass group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+              delay={i * 90}
+              className="glass glass-border group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
             >
               <div className="h-44 overflow-hidden">
                 <img
@@ -166,7 +167,7 @@ const Portfolio = () => {
                 </div>
                 <LinkButtons demo={p.demo} code={p.code} small />
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaLinkedin, FaGithub, FaMapMarkerAlt } from "react-icons/fa";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 const Contact = () => {
   return (
@@ -10,20 +12,16 @@ const Contact = () => {
       className="w-full bg-gradient-to-b from-gray-900 to-ink py-24 text-white"
     >
       <div className="mx-auto max-w-screen-lg px-4">
-        <div className="pb-10">
-          <h2 className="section-title">
-            Get in <span className="text-gradient">touch</span>
-          </h2>
-          <div className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
-          <p className="mt-4 max-w-2xl text-gray-400">
-            Have a role or project in mind? Drop a message — I usually reply
-            within a day.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="Let's connect"
+          subtitle="Have a role or project in mind? Drop a message — I usually reply within a day."
+        >
+          Get in <span className="text-gradient">touch</span>
+        </SectionHeading>
 
         <div className="grid gap-8 md:grid-cols-5">
           {/* Contact info */}
-          <div className="space-y-4 md:col-span-2">
+          <Reveal className="space-y-4 md:col-span-2">
             <a
               href="mailto:shivamdohare@gmail.com"
               className="glass flex items-center gap-3 rounded-xl p-4 transition-colors duration-200 hover:border-cyan-400/40"
@@ -53,10 +51,12 @@ const Contact = () => {
               <FaMapMarkerAlt size={20} className="text-cyan-300" />
               <span className="text-sm text-gray-300">Hyderabad, India</span>
             </div>
-          </div>
+          </Reveal>
 
           {/* Form */}
-          <form
+          <Reveal
+            as="form"
+            delay={120}
             action="https://getform.io/f/zbxdgjeb"
             method="POST"
             className="glass flex flex-col gap-4 rounded-2xl p-6 md:col-span-3"
@@ -85,7 +85,7 @@ const Contact = () => {
             <button className="w-fit rounded-md bg-gradient-to-r from-cyan-500 to-indigo-500 px-8 py-3 font-medium text-white shadow-glow transition-transform duration-200 hover:scale-105">
               Let's talk
             </button>
-          </form>
+          </Reveal>
         </div>
 
         <p className="mt-16 text-center text-sm text-gray-500">

@@ -8,6 +8,8 @@ import {
 } from "react-icons/fa";
 import { TbBrandNextjs } from "react-icons/tb";
 import { MdOutlineDesignServices } from "react-icons/md";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 const categories = [
   {
@@ -112,22 +114,19 @@ const Skills = () => {
       className="w-full bg-gradient-to-b from-ink to-gray-900 py-24 text-white"
     >
       <div className="mx-auto max-w-screen-lg px-4">
-        <div className="pb-10">
-          <h2 className="section-title">
-            Skills &amp; <span className="text-gradient">Toolbox</span>
-          </h2>
-          <div className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
-          <p className="mt-4 max-w-2xl text-gray-400">
-            The stack I reach for — from the AI / agentic layer down to cloud
-            deployment.
-          </p>
-        </div>
+        <SectionHeading
+          eyebrow="What I work with"
+          subtitle="The stack I reach for — from the AI / agentic layer down to cloud deployment."
+        >
+          Skills &amp; <span className="text-gradient">Toolbox</span>
+        </SectionHeading>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map(({ icon, title, skills, accent }) => (
-            <div
+          {categories.map(({ icon, title, skills, accent }, i) => (
+            <Reveal
               key={title}
-              className="glass group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+              delay={(i % 3) * 90}
+              className="glass glass-border group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
             >
               <div className="mb-4 flex items-center gap-3">
                 <span
@@ -144,7 +143,7 @@ const Skills = () => {
                   </span>
                 ))}
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

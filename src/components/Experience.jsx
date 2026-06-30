@@ -1,4 +1,6 @@
 import React from "react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 const roles = [
   {
@@ -57,12 +59,9 @@ const Experience = () => {
       className="w-full bg-gradient-to-b from-gray-900 to-ink py-24 text-white"
     >
       <div className="mx-auto max-w-screen-lg px-4">
-        <div className="pb-12">
-          <h2 className="section-title">
-            Work <span className="text-gradient">Experience</span>
-          </h2>
-          <div className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
-        </div>
+        <SectionHeading eyebrow="Where I've shipped" className="pb-12">
+          Work <span className="text-gradient">Experience</span>
+        </SectionHeading>
 
         <div className="relative">
           {/* vertical timeline rail */}
@@ -70,9 +69,9 @@ const Experience = () => {
 
           <div className="space-y-8">
             {roles.map((role, i) => (
-              <div key={i} className="relative sm:pl-12">
+              <Reveal key={i} delay={i * 60} className="relative sm:pl-12">
                 <span className="absolute left-0 top-2 hidden h-4 w-4 -translate-x-1/2 rounded-full border-2 border-cyan-400 bg-ink shadow-glow sm:block" />
-                <div className="glass rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
+                <div className="glass glass-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-semibold text-white">
                       {role.title}
@@ -105,7 +104,7 @@ const Experience = () => {
                     ))}
                   </ul>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

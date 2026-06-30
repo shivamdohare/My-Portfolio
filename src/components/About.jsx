@@ -1,4 +1,6 @@
 import React from "react";
+import Reveal from "./Reveal";
+import SectionHeading from "./SectionHeading";
 
 const stats = [
   { value: "3+", label: "Years building UIs" },
@@ -15,15 +17,12 @@ const About = () => {
       className="w-full bg-gradient-to-b from-gray-900 to-ink py-24 text-white"
     >
       <div className="mx-auto flex max-w-screen-lg flex-col px-4">
-        <div className="pb-10">
-          <h2 className="section-title">
-            About <span className="text-gradient">me</span>
-          </h2>
-          <div className="mt-3 h-1 w-20 rounded-full bg-gradient-to-r from-cyan-400 to-indigo-400" />
-        </div>
+        <SectionHeading eyebrow="Who I am">
+          About <span className="text-gradient">me</span>
+        </SectionHeading>
 
         <div className="grid gap-10 md:grid-cols-5">
-          <div className="space-y-5 text-lg leading-relaxed text-gray-300 md:col-span-3">
+          <Reveal className="space-y-5 text-lg leading-relaxed text-gray-300 md:col-span-3">
             <p>
               I'm a Frontend Engineer with{" "}
               <span className="text-white">3+ years</span> specializing in
@@ -47,17 +46,18 @@ const About = () => {
               state, memoized selectors, reusable design-token-backed component
               systems, and accessible, cross-browser-correct UI.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid grid-cols-2 gap-4 md:col-span-2">
-            {stats.map(({ value, label }) => (
-              <div
+            {stats.map(({ value, label }, i) => (
+              <Reveal
                 key={label}
-                className="glass flex flex-col items-center justify-center rounded-xl p-5 text-center transition-transform duration-200 hover:scale-105"
+                delay={i * 80}
+                className="glass glass-border flex flex-col items-center justify-center rounded-xl p-5 text-center transition-transform duration-200 hover:scale-105 hover:shadow-glow"
               >
                 <span className="text-3xl font-bold text-gradient">{value}</span>
                 <span className="mt-2 text-sm text-gray-400">{label}</span>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
