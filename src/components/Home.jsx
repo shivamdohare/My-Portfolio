@@ -1,7 +1,6 @@
 import React from "react";
 import HeroImage from "../assets/heroImage.png";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { HiOutlineDocumentDownload } from "react-icons/hi";
 import { Link } from "react-scroll";
 
 const Home = () => {
@@ -62,15 +61,6 @@ const Home = () => {
                 <MdOutlineKeyboardArrowRight size={22} className="ml-1" />
               </span>
             </Link>
-            <a
-              href="/Shivam_Dohare_Resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="group flex w-fit items-center gap-2 rounded-md border border-white/15 bg-white/5 px-6 py-3 font-medium text-gray-200 transition-all duration-200 hover:border-cyan-400/40 hover:text-white"
-            >
-              <HiOutlineDocumentDownload size={20} />
-              Resume
-            </a>
           </div>
         </div>
 
