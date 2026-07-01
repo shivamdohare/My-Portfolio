@@ -10,7 +10,7 @@ const Home = () => {
     <div
       name="home"
       id="home"
-      className="relative h-screen w-full overflow-hidden bg-gradient-to-b from-ink via-ink to-gray-900"
+      className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-ink via-ink to-gray-900"
     >
       {/* Ambient background flourishes */}
       <div className="pointer-events-none absolute inset-0 bg-grid-faint bg-[size:42px_42px] opacity-[0.5]" />
@@ -18,7 +18,7 @@ const Home = () => {
       <div className="pointer-events-none absolute -left-32 top-24 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-10 h-80 w-80 rounded-full bg-indigo-500/20 blur-3xl" />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-screen-lg flex-col items-center justify-center gap-10 px-4 md:flex-row">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-screen-lg flex-col items-center justify-center gap-10 px-4 py-28 md:flex-row md:py-0">
         <div className="flex flex-col justify-center">
           <span
             className="mb-4 flex w-fit animate-fade-up items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-gray-300"
@@ -32,7 +32,7 @@ const Home = () => {
           </span>
 
           <h2
-            className="animate-fade-up text-5xl font-bold leading-[1.05] tracking-tight text-white sm:text-7xl"
+            className="animate-fade-up text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl md:text-7xl"
             style={{ animationDelay: "120ms" }}
           >
             Building{" "}
