@@ -91,7 +91,7 @@ const Home = () => {
             <img
               src={HeroImage}
               alt="Shivam Dohare"
-              className="mx-auto w-2/3 rounded-3xl ring-1 ring-white/10 transition-transform duration-500 hover:scale-[1.03] md:w-[20rem]"
+              className="mx-auto w-full max-w-[16rem] rounded-3xl object-cover ring-1 ring-white/10 transition-transform duration-500 hover:scale-[1.03] md:w-[20rem] md:max-w-none"
             />
           </div>
         </div>
